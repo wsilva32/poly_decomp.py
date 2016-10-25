@@ -30,7 +30,7 @@ class PyTest(TestCommand):
 
 
 if sys.argv[-1] == 'publish':
-    os.system('python setup.py sdist upload')
+    os.system('python setup.py sdist bdist_wheel upload')
     sys.exit()
 
 packages = [
@@ -47,9 +47,9 @@ with open('poly_decomp/__init__.py', 'r') as fd:
 if not version:
     raise RuntimeError('Cannot find version information')
 
-with open('README.md', 'r', 'utf-8') as f:
+with open('README.rst', 'r', 'utf-8') as f:
     readme = f.read()
-with open('CHANGELOG.md', 'r', 'utf-8') as f:
+with open('CHANGELOG.rst', 'r', 'utf-8') as f:
     changelog = f.read()
 
 setup(name='poly_decomp',
